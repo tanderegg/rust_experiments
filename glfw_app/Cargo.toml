@@ -1,0 +1,11 @@
+[package]
+
+name = "glfw_app"
+version = "0.0.1"
+authors = ["Tim Anderegg <timothy.anderegg@gmail.com>"]
+
+[dependencies.glfw]
+git = "https://github.com/bjz/glfw-rs.git"
+
+[dependencies.gl]
+git = "https://github.com/bjz/gl-rs"
