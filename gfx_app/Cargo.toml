@@ -1,0 +1,9 @@
+[package]
+name = "gfx_app"
+version = "0.1.0"
+authors = ["Tim Anderegg <timothy.anderegg@gmail.com>"]
+
+[dependencies]
+gfx = "*"
+gfx_window_glutin = "*"
+glutin = "*"
