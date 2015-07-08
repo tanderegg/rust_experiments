@@ -1,5 +1,6 @@
+extern crate rand;
+
 use std::io;
-use std::rand;
 use std::cmp::Ordering;
 
 fn main() {
@@ -10,10 +11,14 @@ fn main() {
     loop {
         println!("Please input your guess.");
 
-        let input = io::stdin().read_line()
-                               .ok()
-                               .expect("There was an error.");
-        let input_num: Option<u32> = input.trim().parse();
+        let mut input_stream = io::stdin();
+        let mut buffer = String::new();
+
+        input_stream.read_line(&mut buffer)
+                    .ok()
+                    .expect("There was an error.");
+        
+        let input_num: Option<u32> = buffer.trim().parse().ok();
 
         let num = match input_num {
             Some(num) => num,
@@ -23,7 +28,7 @@ fn main() {
             }
         };
 
-        println!("You guessed: {}", input);
+        println!("You guessed: {}", buffer);
 
         match cmp(num, secret) {
             Ordering::Less => println!("Too small!"),
